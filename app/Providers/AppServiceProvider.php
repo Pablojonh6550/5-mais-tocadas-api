@@ -4,6 +4,12 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+// Interfaces
+use App\Interfaces\BaseInterface;
+
+// Repositories
+use App\Repositories\BaseRepository;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -11,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(BaseInterface::class, BaseRepository::class);
     }
 
     /**
